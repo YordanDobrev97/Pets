@@ -1,0 +1,17 @@
+@import url("./navigation.css");
+@import url("./style.css");
+@import url("./bootstrap.min.css");
+@import url("./font-awesome.css");
+@import url("./lightbox.css");
+@import url("./popup-box.css");
+@import url("./form.css");
+
+.adoption-btn {
+    border: none;
+    border-radius: 20px;
+    background-color: orange;
+    color: white;
+    font-size: 24px;
+    padding: 5px 60px;
+    margin: 10px;
+}

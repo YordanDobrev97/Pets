@@ -28,17 +28,20 @@ const Navbar = () => {
 
             <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
                 <NavItems>
-                    <NavItem value='About' />
-                    <NavItem value='Services' />
-                    <NavItem value='Gallerry' />
+                    <NavItem value='about' />
+                    <NavItem value='services' />
+                    <NavItem value='gallery' />
                     {context.isAuthenticated ? (
                         (
-                            <NavItem value='Logout' />
+                            <React.Fragment>
+                                <NavItem value='NewPet' />
+                                <NavItem value='logout' />
+                            </React.Fragment>
                         )
                     ) : (
                         <React.Fragment>
-                            <NavItem value='Login' />
-                            <NavItem value='Register' />
+                            <NavItem value='login' />
+                            <NavItem value='register' />
                         </React.Fragment>
                     )}
                 </NavItems>

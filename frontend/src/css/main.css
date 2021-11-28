@@ -166,3 +166,55 @@ h2 {
     line-height: 1.5;
     word-spacing: 4px;
 }
+
+* {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.pagination-nav {
+    position: relative;
+    top: 100px;
+    margin: auto;
+}
+
+.pagination .active a {
+    color: #143361;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+.pagination .active a:hover {
+    background-color: transparent;
+    color: #143361;
+    border: 0px;
+}
+
+.pagination .active:focus {
+    background-color: transparent;
+    color: #143361;
+    outline: none;
+}
+
+.pagination li a {
+    border: 1px;
+    margin-left: 0px;
+    color: #707070;
+    padding: 7px 2px;
+    margin: 0px 20px;
+}
+
+.pagination li a:hover {
+    background-color: transparent;
+    color: #4a90e2;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+    padding: 1px;
+    margin: 5px 25px;
+}
+
+.pagination li a:focus {
+    outline: none;
+    background-color: transparent;
+}

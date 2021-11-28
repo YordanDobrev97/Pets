@@ -5,14 +5,13 @@
 }
 
 img {
-    max-width: 40%;
-    height: 80%;
+    max-width: 90%;
+    min-height: 80%;
     padding: 9px;
     margin: auto;
 }
 
 .gallery {
-    padding: 70px 10px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -21,19 +20,29 @@ img {
     transform: scale(1);
     transition: all 300ms;
     align-items: flex-start;
+    padding: 160px;
 }
 
 .gallery article {
     display: flex;
     flex-direction: column;
-    max-width: 30%;
-    height: 50%;
-    padding: 20px;
-    margin: 6px 12px;
+    width: 30%;
+    height: 280px;
+    padding: 4%;
     align-self: baseline;
 }
 
 .details-btn {
     width: 75%;
     margin: auto;
+}
+
+@media (max-width: 630px) {
+    .gallery {
+        flex-direction: column;
+    }
+
+    .gallery article {
+        width: 100%;
+    }
 }

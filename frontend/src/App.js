@@ -13,11 +13,15 @@ import Register from './components/Register'
 import Gallery from './components/Gallery'
 import Services from './components/Services'
 import About from './components/About'
+import AddPet from './components/AddPet'
 import AuthContext from './context/AuthContext'
 import { useState } from "react"
+import { useCookies } from 'react-cookie'
+
 
 function App() {
-  const [isAuthenticated, setAuthenticated] = useState(false)
+  const [cookies] = useCookies(['name'])
+  const [isAuthenticated, setAuthenticated] = useState(cookies?.jwt)
 
   return (
     <div className="one-img" id="header">
@@ -33,6 +37,7 @@ function App() {
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/services' element={<Services />} />
             <Route path='/about' element={<About />} />
+            <Route path='/newPet' element={<AddPet />} />
             <Route exact path='/' element={<Home />} />
           </Routes>
         </AuthContext.Provider>

@@ -1,0 +1,168 @@
+@import url("./navigation.css");
+@import url("./style.css");
+@import url("./bootstrap.min.css");
+@import url("./font-awesome.css");
+@import url("./lightbox.css");
+@import url("./popup-box.css");
+@import url("./form.css");
+@import url("./gallery.css");
+
+.adoption-btn {
+    border: none;
+    border-radius: 20px;
+    background-color: orange;
+    color: white;
+    font-size: 24px;
+    padding: 5px 60px;
+    margin: 10px;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.hd {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.card.hover,
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    margin-bottom: 35px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+button.focus,
+button:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.ft {
+    margin-top: 25px;
+}
+
+.chk {
+    margin-bottom: 5px;
+}
+
+.rck {
+    margin-top: 20px;
+    padding-bottom: 15px;
+}
+
+.card {
+    height: 50%;
+}
+
+/* about */
+
+h2 {
+    font-weight: lighter;
+}
+
+.about-container {
+    padding-top: 85px;
+    padding-bottom: 102px;
+}
+
+.about {
+    text-align: center;
+    color: gray;
+    padding: 40px;
+}
+
+.title {
+    font-size: 22px;
+    color: #2c2c2c;
+}
+
+.desc {
+    color: #909090;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.45em;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+@media (max-width: 630px) {
+    .title {
+        font-size: 18px;
+    }
+}
+
+.row {
+    width: 95%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+@media (max-width: 494px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.card {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.card_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 9px 30px -6px rgba(24, 206, 15, 0.3);
+    position: relative;
+    transition: transform 0.4s;
+}
+
+.fas,
+.fab {
+    display: inline-block;
+    position: absolute;
+    color: #63b563;
+    transform: translate(-52%, 75%);
+    font-size: 40px;
+}
+
+.card_title {
+    font-size: 20px;
+    margin: 12px;
+    font-weight: bold;
+    color: #000000a8;
+    transition: color 0.2s;
+}
+
+.card:hover .card_title {
+    color: #4bd482;
+}
+
+.card:hover .card_img {
+    transform: translate(0px, -10px);
+}
+
+.card_body {
+    color: #8c9490;
+    font-size: 16px;
+    padding: 0 5px;
+    line-height: 1.5;
+    word-spacing: 4px;
+}

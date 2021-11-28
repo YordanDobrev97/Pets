@@ -1,0 +1,27 @@
+.title {
+    color: white !important;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.nav-item a {
+    font-size: 20px !important;
+}
+
+.login-hedder {
+    font-size: 22px !important;
+}
+
+.slider-info h1 {
+    color: orange;
+    text-transform: uppercase;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.description {
+    margin: 0;
+    color: orange;
+}
+
+a {
+    color: white !important;
+}

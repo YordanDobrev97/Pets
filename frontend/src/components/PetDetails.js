@@ -10,7 +10,7 @@ const PetDetails = () => {
     const { petId } = useParams()
     const cookies = useCookies(['name'])
     const { jwt } = cookies[0]
-    const { userId } = jwtParser(jwt)
+    const userId = jwtParser(jwt)?.userId
 
     const [notification, setNotification] = useState('')
 
@@ -24,10 +24,16 @@ const PetDetails = () => {
     }, [])
 
     const adopt = async () => {
-        const res = await UsersService.adopt(petId, userId)
-        if (res.data?.owner === userId) {
-            setNotification('Successful adoption!')
+        console.log(userId)
+        if (!userId) {
+            setNotification('You must be logged in to adopt')
+        } else {
+            const res = await UsersService.adopt(petId, userId)
+            if (res.data?.owner === userId) {
+                setNotification('Successful adoption!')
+            }
         }
+
     }
 
     const returnToShelter = async () => {

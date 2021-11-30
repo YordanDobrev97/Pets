@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import UsersService from '../services/UsersService'
+import { useCookies } from 'react-cookie'
+import AuthContext from '../context/AuthContext'
 
 const Login = () => {
     const [email, setEmail] = useState()
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
+    const [cookies, setCookie] = useCookies(['name'])
     const navigate = useNavigate()
+    const context = useContext(AuthContext)
 
     const signIn = async () => {
         const response = await UsersService.login(email, username, password)
 
         if (response.status === 200) {
+            setCookie('jwt', response.data.token)
+            context.setAuthenticated(oldValue => true)
             navigate('/')
         }
     }

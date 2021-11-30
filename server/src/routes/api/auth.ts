@@ -52,7 +52,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 // @desc    Login user and get token
 // @access  Public
 router.post(
-  "/",
+  "/signin",
   [
     check("email", "Please include a valid email").isEmail(),
     check("password", "Password is required").exists()

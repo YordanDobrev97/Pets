@@ -13,7 +13,6 @@ const Register = () => {
     const [cookies, setCookie] = useCookies(['name'])
     const navigate = useNavigate()
     const context = useContext(AuthContext)
-    console.log(context)
 
     const register = async () => {
         if (password === confirmPassword) {

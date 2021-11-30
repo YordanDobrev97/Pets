@@ -10,7 +10,7 @@ const AddPet = () => {
 
     const addPet = async () => {
         await PetsService.add(name, image, description)
-        navigate('/gallery')
+        navigate('/pets/all')
     }
 
     return (

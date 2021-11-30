@@ -6,16 +6,7 @@ import { useContext } from 'react'
 import React from "react"
 
 const Navbar = () => {
-    const items = [
-        'About',
-        'Services',
-        'Gallery',
-        'Login',
-        'Register'
-    ]
-
     const context = useContext(AuthContext)
-    console.log(context)
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light" style={{ display: 'flex', alignItems: 'baseline' }}>
@@ -28,20 +19,20 @@ const Navbar = () => {
 
             <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
                 <NavItems>
-                    <NavItem value='about' />
-                    <NavItem value='services' />
-                    <NavItem value='gallery' />
+                    <NavItem to='about' value='about' />
+                    <NavItem to='services' value='services' />
+                    <NavItem to='pets/all' value='pets' />
                     {context.isAuthenticated ? (
                         (
                             <React.Fragment>
-                                <NavItem value='NewPet' />
-                                <NavItem value='logout' />
+                                <NavItem to='pets/add' value='add' />
+                                <NavItem to='logout' value='logout' />
                             </React.Fragment>
                         )
                     ) : (
                         <React.Fragment>
-                            <NavItem value='login' />
-                            <NavItem value='register' />
+                            <NavItem to='login' value='login' />
+                            <NavItem to='register' value='register' />
                         </React.Fragment>
                     )}
                 </NavItems>

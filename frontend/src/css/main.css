@@ -6,6 +6,7 @@
 @import url("./popup-box.css");
 @import url("./form.css");
 @import url("./gallery.css");
+@import url("./details.css");
 
 .adoption-btn {
     border: none;
@@ -101,13 +102,6 @@ h2 {
     .title {
         font-size: 18px;
     }
-}
-
-.row {
-    width: 95%;
-    display: flex;
-    padding: 10px;
-    justify-content: center;
 }
 
 @media (max-width: 494px) {

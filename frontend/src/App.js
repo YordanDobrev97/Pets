@@ -17,7 +17,7 @@ import AddPet from './components/AddPet'
 import AuthContext from './context/AuthContext'
 import { useState } from "react"
 import { useCookies } from 'react-cookie'
-
+import PetDetails from './components/PetDetails'
 
 function App() {
   const [cookies] = useCookies(['name'])
@@ -32,12 +32,15 @@ function App() {
           </div>
 
           <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/gallery' element={<Gallery />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/newPet' element={<AddPet />} />
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
+            <Route path='services' element={<Services />} />
+            <Route path='about' element={<About />} />
+            <Route path='pets'>
+              <Route path=':petId' element={<PetDetails />} />
+              <Route path='add' element={<AddPet />} />
+              <Route path='all' element={<Gallery />} />
+            </Route>
             <Route exact path='/' element={<Home />} />
           </Routes>
         </AuthContext.Provider>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 const Pets = ({ pets, loading }) => {
     if (loading) {
@@ -14,7 +15,7 @@ const Pets = ({ pets, loading }) => {
                         <h3 className="text-white text-center">{pet.name}</h3>
                         <img src={pet.imageUrl} alt="pet image" />
                         <p className="text-white text-center">{new Date(pet.date).toLocaleDateString()}</p>
-                        <button className="btn btn-info details-btn">Details</button>
+                        <Link to={`/pets/${pet._id}`} className="btn btn-info details-btn">Details</Link>
                     </article>
                 )
             })}

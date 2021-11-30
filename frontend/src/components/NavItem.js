@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-const NavItem = ({ value }) => {
+const NavItem = ({ to, value }) => {
     return (
         <li className="nav-item">
-            <Link to={`/${value}`} className="nav-link text-white display-3">{value}</Link>
+            <Link to={`/${to}`} className="nav-link text-white display-3">{value}</Link>
         </li>
     )
 }

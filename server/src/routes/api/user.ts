@@ -89,6 +89,9 @@ router.post(
   }
 );
 
+// @route  POST api/user/adoption
+// @desc   Adoption of an animal from the shelter
+// @access Public
 router.post('/adoption', async (req: Request, res: Response) => {
   const { petId, userId } = req.body
 
@@ -99,6 +102,21 @@ router.post('/adoption', async (req: Request, res: Response) => {
   res.json(pet)
 })
 
+// @route  POST api/user/adoption
+// @desc   Return of the animal to the shelter
+// @access Public
+router.post('/returnToShelter', async (req: Request, res: Response) => {
+  const { petId } = req.body
+  const pet = await Pet.findById(petId)
+  pet.owner = null;
+  await pet.save()
+
+  res.json(pet)
+})
+
+// @route   POST api/user/:id
+// @desc    Get all user pets
+// @access  Public
 router.get('/pets/:userId', async (req: Request, res: Response) => {
   const { userId } = req.params
   const pets = await Pet.find().where('owner').in([userId]).exec()

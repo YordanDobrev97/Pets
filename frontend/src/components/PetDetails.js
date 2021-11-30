@@ -30,6 +30,13 @@ const PetDetails = () => {
         }
     }
 
+    const returnToShelter = async () => {
+        const res = await UsersService.returnToShelter(petId)
+        if (res.data?.owner === null) {
+            setNotification('The animal was successfully returned!')
+        }
+    }
+
     return (
         <div className="container">
             <div className="row d-flex justify-content-center">
@@ -46,7 +53,7 @@ const PetDetails = () => {
                             {pet?.owner === userId ? (
                                 <React.Fragment>
                                     <button className="btn btn-warning">Adopted</button>
-                                    <button className="card-button">Back to the shelter</button>
+                                    <button onClick={returnToShelter} className="card-button">Back to the shelter</button>
                                 </React.Fragment>
                             ) : (
                                 <div className="buttons">

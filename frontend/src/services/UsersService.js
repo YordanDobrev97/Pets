@@ -28,6 +28,12 @@ export default {
         })
         return response
     },
+    returnToShelter: async (petId) => {
+        const response = await axios.post(`${SERVER_URL}/api/user/returnToShelter`, {
+            petId
+        })
+        return response
+    },
     getPets: async (userId) => {
         const response = await axios.get(`${SERVER_URL}/api/user/pets/${userId}`)
         return response

@@ -22,7 +22,7 @@ const Navbar = () => {
                     <NavItem to='about' value='about' />
                     <NavItem to='services' value='services' />
                     <NavItem to='pets/all' value='pets' />
-                    <NavItem to='my' value='my pets' />
+                    <NavItem to='myPets' value='my pets' />
                     {context.isAuthenticated ? (
                         (
                             <React.Fragment>

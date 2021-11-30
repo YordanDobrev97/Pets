@@ -30,8 +30,6 @@ const PetDetails = () => {
         }
     }
 
-    console.log(pet)
-
     return (
         <div className="container">
             <div className="row d-flex justify-content-center">
@@ -48,6 +46,7 @@ const PetDetails = () => {
                             {pet?.owner === userId ? (
                                 <React.Fragment>
                                     <button className="btn btn-warning">Adopted</button>
+                                    <button className="card-button">Back to the shelter</button>
                                 </React.Fragment>
                             ) : (
                                 <div className="buttons">

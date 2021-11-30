@@ -99,4 +99,10 @@ router.post('/adoption', async (req: Request, res: Response) => {
   res.json(pet)
 })
 
+router.get('/pets/:userId', async (req: Request, res: Response) => {
+  const { userId } = req.params
+  const pets = await Pet.find().where('owner').in([userId]).exec()
+  res.json(pets)
+})
+
 export default router;

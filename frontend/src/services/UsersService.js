@@ -27,5 +27,10 @@ export default {
             petId, userId
         })
         return response
+    },
+    getPets: async (userId) => {
+        const response = await axios.get(`${SERVER_URL}/api/user/pets/${userId}`)
+        return response
     }
+
 }

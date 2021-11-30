@@ -56,7 +56,7 @@ const PetDetails = () => {
                             <div className="px-4 mt-1">
                                 <p className="fonts">{pet?.description}</p>
                             </div>
-                            {pet?.owner === userId ? (
+                            {userId && pet?.owner === userId ? (
                                 <React.Fragment>
                                     <button className="btn btn-warning">Adopted</button>
                                     <button onClick={returnToShelter} className="card-button">Back to the shelter</button>

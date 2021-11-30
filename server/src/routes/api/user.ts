@@ -119,8 +119,13 @@ router.post('/returnToShelter', async (req: Request, res: Response) => {
 // @access  Public
 router.get('/pets/:userId', async (req: Request, res: Response) => {
   const { userId } = req.params
-  const pets = await Pet.find().where('owner').in([userId]).exec()
-  res.json(pets)
+
+  if (userId) {
+    const pets = await Pet.find().where('owner').in([userId]).exec()
+    res.json(pets)
+  } else {
+    res.json('No pets')
+  }
 })
 
 export default router;

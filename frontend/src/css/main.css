@@ -285,3 +285,9 @@ a {
     background-color: #1d3461;
     color: #fff;
 }
+
+span .avatar {
+    width: 70px;
+    height: 54px;
+    border-radius: 50%;
+}

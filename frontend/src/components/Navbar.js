@@ -2,14 +2,22 @@ import { Link, useNavigate } from "react-router-dom"
 import NavItems from './NavItems'
 import NavItem from './NavItem'
 import AuthContext from '../context/AuthContext'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import React from "react"
 import { useCookies } from 'react-cookie'
+import jwtParser from '../utils/jwtParser'
 
 const Navbar = () => {
+    const [role, setRole] = useState()
     const context = useContext(AuthContext)
     const [cookies, setCookie, removeCookie] = useCookies(['name'])
     const navigate = useNavigate()
+
+
+    useEffect(() => {
+        const jwt = jwtParser(cookies?.jwt)
+        setRole(jwt?.role)
+    }, [])
 
     const logout = () => {
         context.setAuthenticated(false)
@@ -35,7 +43,16 @@ const Navbar = () => {
                         (
                             <React.Fragment>
                                 <NavItem to='myPets' value='my pets' />
-                                <NavItem to='pets/add' value='add' />
+
+                                {role === 'Admin' ? (
+                                    <NavItem to='pets/add' value='add' />)
+                                    : <React.Fragment></React.Fragment>
+                                }
+
+                                <span>
+                                    <img className="avatar" src="https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg" alt="avatar" />
+                                </span>
+
                                 <button onClick={logout} className="text-white btn btn-link">Logout</button>
                             </React.Fragment>
                         )

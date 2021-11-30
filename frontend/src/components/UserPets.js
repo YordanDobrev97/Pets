@@ -16,11 +16,11 @@ const UserPets = () => {
         const fetchPets = async () => {
             const { jwt } = cookies[0]
             const { userId } = jwtParser(jwt)
-            const res = await UsersService.getPets(userId);
-            console.log(res.data)
-            setPets(res.data)
+            if (userId) {
+                const res = await UsersService.getPets(userId);
+                setPets(res.data)
+            }
         }
-
         fetchPets()
     }, [])
 

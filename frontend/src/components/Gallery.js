@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PetsService from '../services/PetsService'
 import Pets from '../components/Pets'
 import Pagination from '../components/Pagination'
-import { Outlet } from 'react-router-dom'
 
 const Gallery = () => {
     const [pets, setPets] = useState([])

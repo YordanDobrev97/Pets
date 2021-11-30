@@ -91,8 +91,9 @@ router.post(
         });
       }
 
-      const payload: Payload = {
-        userId: user.id
+      const payload = {
+        userId: user.id,
+        role: user.role,
       };
 
       jwt.sign(
@@ -119,6 +120,7 @@ function createToken(user: IUser) {
   const secret = 'very-secrtet';
   const dataStoredInToken = {
     _id: user._id,
+    role: user.role
   };
 
   return {

@@ -26,21 +26,20 @@ const Login = () => {
         <section className="slider-img one-img">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-4 login-sec form">
+                    <div className="col-md-3 login-sec form">
                         <form className="login-form">
                             <div className="form-group">
-                                <label for="email" className="text-uppercase text-white">Email</label>
+                                <label htmlFor="email" className="text-uppercase text-white">Email</label>
                                 <input type="text" onChange={(e) => setEmail(e.target.value)} className="form-control" placeholder="" />
                             </div>
                             <div className="form-group">
-                                <label for="exampleInputEmail1" className="text-uppercase text-white">Username</label>
+                                <label htmlFor="exampleInputEmail1" className="text-uppercase text-white">Username</label>
                                 <input type="text" onChange={(e) => setUsername(e.target.value)} className="form-control" placeholder="" />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1" class="text-uppercase text-white">Password</label>
+                                <label htmlFor="exampleInputPassword1" class="text-uppercase text-white">Password</label>
                                 <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="" />
                             </div>
-
                             <button type="button" onClick={signIn} className="btn btn-login float-right">Submit</button>
                         </form>
                     </div>

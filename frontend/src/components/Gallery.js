@@ -1,49 +1,40 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import PetsService from '../services/PetsService'
+import Pets from '../components/Pets'
+import Pagination from '../components/Pagination'
 
 const Gallery = () => {
     const [pets, setPets] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [petsPerPage] = useState(3)
 
     useEffect(() => {
-        PetsService.getAll()
-            .then(petRes => {
-                setPets(petRes.data)
-            })
+        const fetchPets = async () => {
+            setLoading(true)
+            const res = await PetsService.getAll()
+            setPets(res.data)
+            setLoading(false)
+        }
+
+        fetchPets()
     }, [])
 
+    const indexOfLastPost = currentPage * petsPerPage;
+    const indexOfFirstPost = indexOfLastPost - petsPerPage;
+    const currentPets = pets.slice(indexOfFirstPost, indexOfLastPost);
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
     return (
         <React.Fragment>
             <section className="gallery">
-                {pets && pets.map((pet, indx) => {
-                    return (
-                        <article className="border">
-                            <h3 className="text-white text-center">{pet.name}</h3>
-                            <img src={pet.imageUrl} alt="pet image" />
-                            <p className="text-white text-center">{new Date(pet.date).toLocaleDateString()}</p>
-                            <button className="btn btn-info details-btn">Details</button>
-                        </article>
-                    )
-                })}
-                <nav className="pagination-nav">
-                    <ul className="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true"><i className="fa fa-chevron-left" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li className="active"><a href="#">01</a></li>
-                        <li><a href="#">02</a></li>
-                        <li><a href="#">03</a></li>
-                        <li><a href="#">04</a></li>
-                        <li><a href="#">05</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true"><i className="fa fa-chevron-right" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <Pets pets={currentPets} loading={loading} />
+
+                <Pagination
+                    petsPerPage={petsPerPage}
+                    totalPets={pets.length}
+                    paginate={paginate} />
             </section>
 
 

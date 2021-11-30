@@ -12,9 +12,8 @@ export default {
         })
         return response
     },
-
     getById: async (id) => {
         const response = await axios.get(`${SERVER_URL}/api/pet/${id}`)
         return response
-    }
+    },
 }

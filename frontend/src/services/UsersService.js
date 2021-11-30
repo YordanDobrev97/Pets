@@ -12,7 +12,6 @@ export default {
 
         return response;
     },
-
     login: async (email, username, password) => {
         const response = await axios.post(`${SERVER_URL}/api/auth/signin`,
             {
@@ -22,5 +21,11 @@ export default {
             })
 
         return response;
+    },
+    adopt: async (petId, userId) => {
+        const response = await axios.post(`${SERVER_URL}/api/user/adoption`, {
+            petId, userId
+        })
+        return response
     }
 }

@@ -1,14 +1,15 @@
-import bcrypt from "bcryptjs";
-import config from "config";
-import { Router, Response } from "express";
-import { check, validationResult } from "express-validator/check";
-import gravatar from "gravatar";
-import HttpStatusCodes from "http-status-codes";
-import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs"
+import config from "config"
+import { Router, Response } from "express"
+import { check, validationResult } from "express-validator/check"
+import gravatar from "gravatar"
+import HttpStatusCodes from "http-status-codes"
+import jwt from "jsonwebtoken"
 
-import Payload from "../../types/Payload";
-import Request from "../../types/Request";
-import User, { IUser } from "../../models/User";
+import Payload from "../../types/Payload"
+import Request from "../../types/Request"
+import User, { IUser } from "../../models/User"
+import Pet from '../../models/Pet'
 
 const router: Router = Router();
 
@@ -87,5 +88,15 @@ router.post(
     }
   }
 );
+
+router.post('/adoption', async (req: Request, res: Response) => {
+  const { petId, userId } = req.body
+
+  const pet = await Pet.findById(petId)
+  pet.owner = userId
+  await pet.save()
+
+  res.json(pet)
+})
 
 export default router;

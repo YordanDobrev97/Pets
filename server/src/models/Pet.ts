@@ -2,7 +2,6 @@ import { Document, Model, model, Schema } from "mongoose";
 import { IUser } from "./User";
 
 /**
- * Interface to model the Profile Schema for TypeScript.
  * @param user:ref => User._id
  * @param firstName:string
  * @param lastName:string

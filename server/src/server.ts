@@ -1,5 +1,5 @@
-import bodyParser from "body-parser";
-import express from "express";
+import bodyParser from "body-parser"
+import express from "express"
 import cors from 'cors'
 
 import connectDB from "../config/database";
@@ -13,7 +13,8 @@ const app = express();
 connectDB();
 
 // Express configuration
-app.set("port", process.env.PORT || 5000);
+const PORT = process.env.PORT || 5000
+app.set("port", PORT);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors())
@@ -22,16 +23,13 @@ app.use(cors())
 // @desc    Test Base API
 // @access  Public
 app.get("/", (_req, res) => {
-  res.send("API Running");
+  res.send("Welcome to Pets REST API!");
 });
 
 app.use("/api/auth", auth);
 app.use("/api/user", user);
 app.use("/api/pet", pet);
 
-const port = app.get("port");
-const server = app.listen(port, () =>
-  console.log(`Server started on port ${port}`)
+app.listen(PORT, () =>
+  console.log(`Server started on port ${PORT}`)
 );
-
-export default server;

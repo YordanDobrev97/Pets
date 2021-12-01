@@ -6,7 +6,15 @@
   "license": "MIT",
   "scripts": {
     "tsc": "tsc",
-    "start": "ts-node-dev ./src/server.ts"
+    "serve": "nodemon dist/server.js",
+    "build": "tsc --build",
+    "prod:serve": "node ./src/server.js",
+    "start": "node ./dist/src/server.js",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "postinstall": "npm run tsc"
+  },
+  "engines": {
+    "node": "12.16.3"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +29,7 @@
     "npm": "^8.1.4",
     "request": "^2.88.0",
     "run": "^1.4.0",
+    "typescript": "^4.5.2",
     "tsc": "^2.0.3"
   },
   "devDependencies": {
@@ -31,9 +40,10 @@
     "@types/gravatar": "^1.8.0",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/mongoose": "^5.5.0",
-    "@types/node": "^16.11.10",
+    "@types/node": "^16.11.11",
     "concurrently": "^4.1.0",
-    "nodemon": "^1.19.0",
+    "nodemon": "^1.19.4",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   }

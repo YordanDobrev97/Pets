@@ -1,5 +1,5 @@
 import axios from 'axios'
-const SERVER_URL = `http://localhost:5000`
+const SERVER_URL = `https://pets-typescript-api.herokuapp.com`
 
 export default {
     register: async (email, username, password) => {
